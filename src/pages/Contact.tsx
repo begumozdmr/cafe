@@ -1,5 +1,6 @@
 import { IconBellRinging } from '@tabler/icons-react'
 import { IconMap, IconPhone } from '@tabler/icons-react'
+import Button from 'components/Button'
 import Header from 'components/Header'
 import React from 'react'
 
@@ -49,8 +50,8 @@ export default function Contact() {
                                 <input type='text' placeholder='Email' className='form--input' />
                                 <input type='text' placeholder='Phone' className='form--input' />
                                 <textarea placeholder='Your Message' className='form--input' />
-                                <div>
-                                    <button className='button'>book now</button>
+                                <div className='mt-5'>
+                                    <Button value='book now' />
                                 </div>
                             </form>
 

@@ -142,4 +142,8 @@ a {
         @apply opacity-100 visible -translate-y-5
     }
 
+    .responsive--navbar--menu.active{
+        @apply opacity-100 visible
+    }
+
 }

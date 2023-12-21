@@ -1,3 +1,4 @@
+import Button from 'components/Button'
 import Header from 'components/Header'
 import React from 'react'
 
@@ -53,10 +54,9 @@ export default function Reservation() {
 
                             <textarea placeholder='Special Requests *' className='form--input' />
                             <div className='flex justify-center items-center'>
-                                <button className='button'>book now</button>
+                                <Button value='book now' />
                             </div>
                         </div>
-
                     </div>
                 </div>
             </section>

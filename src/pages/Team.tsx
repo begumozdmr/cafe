@@ -1,6 +1,6 @@
+import Button from 'components/Button';
 import Header from 'components/Header'
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 interface TeamType {
     id: number,
@@ -65,7 +65,7 @@ export default function Team() {
                             TeamData.map((index: TeamType) => {
                                 return (
                                     <div className='flex flex-col gap-2 text-center' key={index.id}>
-                                        <img src={require(`../img/${index.path}`)} alt='team'/>
+                                        <img src={require(`../img/${index.path}`)} alt='team' />
                                         <span className='text-24 mb-3'>{index.name}</span>
                                         <p className='text-primary--color uppercase font-600 text-14'>- {index.job} -</p>
                                         <p className='text-16'>{index.comment}</p>
@@ -82,8 +82,8 @@ export default function Team() {
                     <div className='gap'>
                         <div className='flex flex-col gap-2 items-center justify-center'>
                             <span className='text-primary--color text-18 font-500'>- JOIN OUR TEAM -</span>
-                            <h1 className='text-70 text-submenu-normal--color'>We are looking for new talents</h1>
-                            <Link to="/contact" className='button'>contact us</Link>
+                            <h1 className='text-70 text-submenu-normal--color text-center'>We are looking for new talents</h1>
+                            <Button value='contact us'/>
                         </div>
                     </div>
                 </div>

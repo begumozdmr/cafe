@@ -6,6 +6,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
+import Button from 'components/Button';
 
 interface SliderType {
     id: number,
@@ -129,7 +130,7 @@ export default function Home() {
 
                                     <div className='flex absolute justify-center items-center left-0 top-0 w-full h-full'>
                                         <div className='container'>
-                                            <div className='row'>   
+                                            <div className='row'>
                                                 <div className='flex flex-col justify-center items-center'>
                                                     <p className='text-white-100 text-16 font-600 tracking-wider'>{index.content}</p>
                                                     <h1 className='text-white-100 text-120 tracking-wider'>Sanum</h1>
@@ -192,7 +193,7 @@ export default function Home() {
                                     <h1 className='text-65 text-submenu-normal--color'>Our Space</h1>
                                     <p className='text-center text-16'>For a truly memorable dining experience, cuisine and atmosphere are paired as thoughtfully as food and wine. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Animi, id est laborum et dolorum fuga.</p>
 
-                                    <Link to="/menu" className='button'>explore our menu</Link>
+                                    <Button value='explore our menu' />
                                 </div>
                             </div>
                         </div>
@@ -252,7 +253,7 @@ export default function Home() {
                                     <h1 className='text-60 text-submenu-normal--color'>Private Events</h1>
                                     <p className='text-center text-16'>For a truly memorable dining experience, cuisine and atmosphere are paired as thoughtfully as food and wine. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Animi, id est laborum et dolorum fuga.</p>
 
-                                    <Link to="/contact" className='button'>contact us</Link>
+                                    <Button value='contact us' />
                                 </div>
                             </div>
                         </div>
