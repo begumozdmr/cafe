@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-fade';
@@ -7,6 +7,7 @@ import 'swiper/css/pagination';
 import { EffectFade, Pagination, Autoplay } from 'swiper/modules';
 import { Link } from 'react-router-dom';
 import Button from 'components/Button';
+import gsap, { Power2 } from 'gsap';
 
 interface SliderType {
     id: number,
@@ -105,6 +106,22 @@ const CustomersData: CustomersType[] = [
 ];
 
 export default function Home() {
+
+    useEffect(() => {
+        gsap.fromTo(".header--title",
+            {
+                y: -100,
+                opacity: 0
+            },
+            {
+                delay: 0.3,
+                y: 0,
+                opacity: 1,
+                ease: Power2.easeInOut
+            }
+        );
+    });
+
     return (
         <>
             <section>
@@ -116,7 +133,7 @@ export default function Home() {
                         clickable: true,
                     }}
                     autoplay={{
-                        delay: 4500,
+                        delay: 3500,
                         disableOnInteraction: false,
                     }}
                     modules={[EffectFade, Pagination, Autoplay]}
@@ -131,7 +148,7 @@ export default function Home() {
                                     <div className='flex absolute justify-center items-center left-0 top-0 w-full h-full'>
                                         <div className='container'>
                                             <div className='row'>
-                                                <div className='flex flex-col justify-center items-center'>
+                                                <div className='flex flex-col justify-center items-center header--title'>
                                                     <p className='text-white-100 text-16 font-600 tracking-wider'>{index.content}</p>
                                                     <h1 className='text-white-100 text-120 tracking-wider'>Sanum</h1>
                                                     <p className='text-white-100 text-16 tracking-wider text-center'>We offer a highly seasonal and continuously evolving tasting menu experience.</p>
@@ -250,7 +267,7 @@ export default function Home() {
                                 <img src={require("../img/home-6.jpg")} alt='home-6' />
                                 <div className='flex flex-col gap-2 items-center justify-center'>
                                     <span className='text-primary--color text-18 font-500'>- MAGICAL -</span>
-                                    <h1 className='text-60 text-submenu-normal--color'>Private Events</h1>
+                                    <h1 className='text-60 text-submenu-normal--color text-center'>Private Events</h1>
                                     <p className='text-center text-16'>For a truly memorable dining experience, cuisine and atmosphere are paired as thoughtfully as food and wine. Ut enim ad minim veniam, quis nostrud exercitation ullamco. Quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Animi, id est laborum et dolorum fuga.</p>
 
                                     <Button value='contact us' />

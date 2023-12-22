@@ -71,7 +71,7 @@ a {
     }
 
     .responsive--navbar {
-        @apply transition-all duration-500 ease-in sm:opacity-0 sm:w-0 sm:invisible md:opacity-0 md:w-0 md:invisible lg:opacity-100 lg:w-auto lg:flex lg:visible xl:opacity-100 xl:w-auto xl:flex xl:visible 2xl:w-auto 2xl:opacity-100 2xl:flex 2xl:visible;
+        @apply flex transition-all duration-500 ease-in sm:opacity-0 sm:w-0 sm:invisible sm:flex md:opacity-0 md:w-0 md:invisible md:flex lg:opacity-100 lg:w-auto lg:flex lg:visible xl:opacity-100 xl:w-auto xl:flex xl:visible 2xl:w-auto 2xl:opacity-100 2xl:flex 2xl:visible;
     }
 
     .container {
@@ -123,7 +123,7 @@ a {
     }
 
     .button {
-        @apply bg-primary--color border-2 border-primary--color text-white-100 p-5 mt-10 font-700 tracking-widest text-13 transition-all duration-300 ease-in hover:bg-white-100 hover:text-primary--color uppercase
+        @apply bg-primary--color border-2 border-primary--color text-white-100 p-5 mt-10 font-700 tracking-widest text-13 transition-all duration-300 ease-in hover:bg-transparent hover:text-primary--color uppercase
     }
 
     .footer--button {
@@ -142,8 +142,12 @@ a {
         @apply opacity-100 visible -translate-y-5
     }
 
-    .responsive--navbar--menu.active{
+    .responsive--navbar--menu.active {
         @apply opacity-100 visible
+    }
+
+    .responsive--header {
+        @apply text-70 sm:text-70 md:text-100 lg:text-100 xl:text-100 2xl:text-100
     }
 
 }

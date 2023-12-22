@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { IconBrandInstagram, IconMenu2 } from '@tabler/icons-react';
+import { IconBrandInstagram, IconMenu2, IconX } from '@tabler/icons-react';
 import { IconBrandFacebookFilled, IconBrandTwitterFilled } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
-import gsap from 'gsap';
+import gsap, { Power2 } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
+import Button from './Button';
 
 interface LinkType {
   id: number,
@@ -55,6 +56,11 @@ export default function Navbar() {
 
   const handleActiveLink = (id: number) => {
     setActiveLink(id === activeLink ? 0 : id);
+    setResponsiveMenu(false);
+    window.scrollTo({
+      behavior: 'smooth',
+      top: 0,
+    });
   };
 
   useEffect(() => {
@@ -74,6 +80,15 @@ export default function Navbar() {
         }
       }
     );
+
+    const bodyStyle = document.querySelector("body")?.style;
+
+    if (responsiveMenu && bodyStyle) {
+      bodyStyle.overflow = "hidden";
+    }
+    else if (bodyStyle) {
+      bodyStyle.overflow = "auto";
+    }
   });
 
   return (
@@ -116,22 +131,28 @@ export default function Navbar() {
 
       </header>
 
-      <div className={`w-full bg-submenu-normal--color pt-3 fixed top-[7.5%] z-[1000] h-auto text-white-100 responsive--navbar--menu transition-all duration-200 ease-in opacity-0 invisible ${responsiveMenu ? "active" : ""}`}>
+      <div className={`w-responsive--navbar bg-submenu-normal--color p-10 fixed z-[1000] h-full text-footer--color responsive--navbar--menu transition-all duration-200 ease-in opacity-0 invisible ${responsiveMenu ? "active" : ""}`}>
         <div className='flex flex-col gap-4'>
+          <div className='p-2 cursor-pointer' onClick={() => setResponsiveMenu(false)}>
+            <IconX />
+          </div>
           {
             NavbarLinkData.map((index: LinkType) => {
               return (
-                <div className='h-full self-stretch text-13 font-700 tracking-[.20em] transition-all ease-in duration-500  hover:text-primary--color' key={index.id}>
-                  <Link to={index.path} className={`flex items-center h-full p-2 ${index.id === activeLink ? "activeLink" : ""}`} onClick={() => handleActiveLink(index.id)}>{index.name}</Link>
-                  <hr className='mt-2 opacity-20' />
+                <div className='p-2 h-full self-stretch text-13 font-700 tracking-[.20em] transition-all ease-in duration-500  hover:text-primary--color' key={index.id}>
+                  <Link to={index.path} className={`ml-[48px] flex h-full ${index.id === activeLink ? "activeLink" : ""}`} onClick={() => handleActiveLink(index.id)}>{index.name}</Link>
                 </div>
               )
             })
           }
+          <div className='flex justify-center items-center flex-col gap-5'>
+            <Button value='book a table' />
+            <p className='text-footer--color mt-5'>58 Ralph Ave<br />New York, New York 1111</p>
+            <p className='text-24 text-footer--color'>+1 800 000 111</p>
+            <h1 className='text-70'>Sanum</h1>
+          </div>
         </div>
       </div>
-
     </>
-
   )
 }
