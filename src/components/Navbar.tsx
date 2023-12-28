@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { IconBrandInstagram, IconMenu2, IconX } from '@tabler/icons-react';
 import { IconBrandFacebookFilled, IconBrandTwitterFilled } from '@tabler/icons-react';
 import { Link } from 'react-router-dom';
-import gsap, { Power2 } from 'gsap';
+import gsap from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import Button from './Button';
 
@@ -94,7 +94,7 @@ export default function Navbar() {
   return (
     <>
       <header className='relative w-full'>
-        <nav className='flex w-full justify-between items-center self-stretch fixed h-70 bg-transparent pl-26 pr-26 text-white-100 gap-2 z-50 navbar'>
+        <nav className='flex w-full justify-between items-center fixed h-70 bg-transparent pl-26 pr-26 text-white-100 gap-2 z-50 navbar'>
           <Link to="/">
             <h1 className='text-50'>Sanum</h1>
           </Link>
@@ -103,8 +103,8 @@ export default function Navbar() {
             {
               NavbarLinkData.map((index: LinkType) => {
                 return (
-                  <li className='h-full self-stretch text-13 font-700 tracking-[.20em] transition-all ease-in duration-500  hover:text-primary--color' key={index.id}>
-                    <Link to={index.path} className={`flex items-center h-full  ${index.id === activeLink ? "activeLink" : ""}`} onClick={() => handleActiveLink(index.id)}>{index.name}</Link>
+                  <li className='text-13 font-700 tracking-[.20em] transition-all ease-in duration-500  hover:text-primary--color' key={index.id}>
+                    <Link to={index.path} className={`flex items-center  ${index.id === activeLink ? "activeLink" : ""}`} onClick={() => handleActiveLink(index.id)}>{index.name}</Link>
                   </li>
                 )
               })
@@ -131,7 +131,7 @@ export default function Navbar() {
 
       </header>
 
-      <div className={`w-responsive--navbar bg-submenu-normal--color p-10 fixed z-[1000] h-full text-footer--color responsive--navbar--menu transition-all duration-200 ease-in opacity-0 invisible ${responsiveMenu ? "active" : ""}`}>
+      <div className={`overflow-x-scroll w-responsive--navbar bg-submenu-normal--color p-10 fixed z-[1000] h-screen text-footer--color responsive--navbar--menu transition-all duration-200 ease-in opacity-0 invisible ${responsiveMenu ? "active" : ""}`}>
         <div className='flex flex-col gap-4'>
           <div className='p-2 cursor-pointer' onClick={() => setResponsiveMenu(false)}>
             <IconX />
